@@ -1,0 +1,3 @@
+| Control Family | Control Id | Control Title | Description | Test | Service Taxonomy ID | Catalogue | Control Mapping | MITRE ATT&CK Mitigations | Threats |
+|--------------|------------|---------------|------|-------------|-----------|-----------------|--------------------------|----------|-------|
+| Logging and Monitoring | CCC.OS.C4 | Aduit Logs Access and Accountability | Restrict audit logs to authorised personnel and maintain records that provide unique access accountability | GIVEN you own the object storage, WHEN an unauthorised user requests access to audit logs, THEN request should fail | CCC-020118 | CCM | LOG-04 | M1018 | T1654
