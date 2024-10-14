@@ -58,3 +58,83 @@ controls:
           Verify that alerts are triggered when the kms key version is disabled.
         tlp_levels:
           - tlp_clear
+  
+   - id: CCC.KeyMgmt.C02
+    title: Keys must be rotated automatically
+    control_family: Key Management
+    objective: |
+      Ensure that keys are rotated automatically to prevent unauthorized access to sensitive data.
+    threats:
+      - CCC.KeyMgmt.THx # Threats are not defined
+    nist_csf: PR.DS-01 # The confidentiality integrity and availability of data at rest are proctected
+    control_mappings:
+      NIST_800_53: 
+        - SC-12 # Cryptographic Key Establishment and Management
+    test_requirements:
+      - id: CCC.KeyMgmt.C02.TR01
+        text: |
+          Verify that KMS has been configured to automatically rotate encryption keys.
+        tlp_levels:
+          - tlp_amber
+
+
+ - id: CCC.KeyMgmt.C03
+    title: Alert when automatic key rotation is disabled or enabled
+    control_family: Logging and Monitoring
+    objective: |
+      Ensure that alerts are generated when automatic key rotation is disabled.
+    threats:
+      - CCC.KeyMgmt.THx # Threats are not defined
+    nist_csf: PR.DS-01 # The confidentiality integrity and availability of data at rest are proctected
+    control_mappings:
+      NIST_800_53: 
+        - SC-12 # Cryptographic Key Establishment and Management
+    test_requirements:
+      - id: CCC.KeyMgmt.C03.TR01
+        text: |
+          Verify that alerts are triggered when automatic key rotation is disabled.
+        tlp_levels:
+          - tlp_amber
+      - id: CCC.KeyMgmt.C03.TR02
+        text: |
+          Verify that alerts are triggered when automatic key rotation is enabled.
+        tlp_levels:
+          - tlp_amber
+
+  -id: CCC.KeyMgmt.C04
+    title: Disable public network access to KMS
+    control_family: Network Security
+    objective: |
+      KMS must be configured to enforce a network guardrail within its Network settings to prevent unauthroized access
+     and data exposure to the internet
+    threats:
+      - CCC.KeyMgmt.TH18
+    nist_csf: PR.DS-1 # Data-at-rest is protected
+    control_mappings:
+      NIST_800_53: 
+        - SC07 # Boundary Protection
+    test_requirements:
+      - id: CCC.KeyMgmt.C04.TR01
+        text: |
+          Verify that KMS is configured to enforce a network guardrail within its Network settings to prevent unauthorized access
+          and data exposure to the internet
+        tlp_levels:
+          - tlp_amber
+  
+  - id: CCC.KeyMgmt.C05
+      title: KMS must have deletion protection enabled
+      control_family: Data Protection
+      objective: |
+        Ensure that KMS has deletion protection enabled to prevent accidental deletion of keys.
+      threats: 
+        - CCC.KeyMgmt.THx # Threats are not defined
+      nist_csf: PR.DS-1 # Data-at-rest is protected
+      control_mappings:
+        NIST_800_53: 
+          - SC-28 # Protection of Information at Rest
+      test_requirements:
+      - id: CCC.KeyMgmt.C05.TR01
+        text: |
+          Verify that KMS has deletion protection enabled to prevent accidental deletion of keys.
+        tlp_levels:
+          - tlp_amber
